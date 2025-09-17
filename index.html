@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timeline Profesional</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .timeline-wrapper {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            max-width: 900px;
+            border: 1px solid #000;
+            background-color: #fff;
+            padding: 5px;
+        }
+        
+        /* Contenedor de la fila de fechas */
+        .dates-container {
+            display: flex;
+            gap: 5px;
+            flex-wrap: nowrap;
+            overflow-x: auto;
+            justify-content: flex-start;
+            margin-bottom: 5px;
+        }
+
+        .date-box {
+            height: 30px;
+            min-width: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 0.9em;
+            text-align: center;
+            flex-shrink: 0;
+            font-weight: bold;
+        }
+
+        .date-box.small { width: 100px; }
+        .date-box.medium { width: 150px; }
+        .date-box.large { width: 200px; }
+
+        /* Contenedor de la línea de tiempo */
+        .timeline-container {
+            display: flex;
+            gap: 5px;
+            flex-wrap: nowrap;
+            overflow-x: auto;
+            justify-content: flex-start;
+        }
+
+        /* Estilo de los recuadros clicables */
+        .box {
+            height: 150px;
+            min-width: 50px;
+            background-color: #fff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            flex-shrink: 0;
+            text-align: center;
+            border: 1px solid #ddd;
+        }
+
+        .box:hover {
+            transform: scale(1.02);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        /* Clases de ancho para los recuadros */
+        .box.small { width: 100px; }
+        .box.medium { width: 150px; }
+        .box.large { width: 200px; }
+
+        /* Estilo del panel de información inferior */
+        .info-panel {
+            width: 100%;
+            max-width: 900px;
+            min-height: 200px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            text-align: left;
+            font-style: italic;
+            color: #555;
+            transition: opacity 0.3s ease;
+            opacity: 0;
+            margin-top: 20px;
+        }
+
+        .info-panel.visible {
+            opacity: 1;
+        }
+
+        .info-title {
+            font-weight: bold;
+            font-size: 1.2em;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        
+        .info-content {
+            font-style: normal;
+            font-size: 1em;
+            line-height: 1.6;
+            margin-top: 10px;
+        }
+
+        .info-content ul {
+            list-style-type: disc;
+            padding-left: 20px;
+        }
+
+        /* Contenedor de las barras de contribución */
+        .contribution-container {
+            width: 100%;
+            max-width: 900px;
+            margin-top: 20px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .contribution-container.visible {
+            opacity: 1;
+        }
+
+        /* Estilo para cada barra de progreso */
+        .progress-bar-container {
+            margin-bottom: 15px;
+        }
+
+        .progress-label {
+            font-weight: bold;
+            font-size: 0.9em;
+            color: #333;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        .progress-bar {
+            background-color: #ddd;
+            height: 25px;
+            border-radius: 5px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background-color: #4CAF50; /* Color verde para el progreso */
+            transition: width 0.5s ease-in-out;
+            position: relative;
+        }
+        
+        .progress-percentage {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #000;
+            font-weight: bold;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Timeline Profesional</h1>
+    <p>Haz clic en cualquier recuadro para ver la información detallada.</p>
+
+    <div class="timeline-wrapper">
+        <div class="dates-container">
+            <div class="date-box large">2021-2023</div>
+            <div class="date-box large">2018-2020</div>
+            <div class="date-box large">2000-2018</div>
+            <div class="date-box medium">1997-2000</div>
+            <div class="date-box medium">1993-1996</div>
+        </div>
+
+        <div class="timeline-container">
+            <div class="box large" onclick="updateInfo(
+                'GMV (Aerospace industry)', 
+                `<ul><li>Managing ITIL processes for several multinational organizations, including, finance, team sizing, resources and training (BMC Remedy).</li><li>This ensured the proper implementation of proactive and reactive monitoring and procedures for a demanding 24/7 autonomous driving project, managing client communications and internal workflows.</li><li>Rigorous monitoring of clients and contractors using OKR/KPIs, procedures, and ISO standards, such as UNE-ISO/EIC 9001, 14001, 22301 and 27701.</li><li>Worked with a technology infrastructure that included AWS, Docker, Nagios, Redmine and Remedy.</li></ul>`,
+                {
+                    'client_management': '30%',
+                    'project_management': '30%',
+                    'procedures': '15%',
+                    'tech_knowledge': '25%'
+                }
+            )">
+                <span class="label">GMV</span>
+            </div>
+
+            <div class="box large" onclick="updateInfo(
+                'DEVO (Big Data SaaS)', 
+                `<ul><li>Head of EMEA Customer Support Success Team for Devo Big Data platform accomplishing regularly the SLAs, reporting, communications and meetings.</li><li>Creation of Business Procedures and the Knowledge Base.</li><li>Involved in the sales process as well as Change Management, Incident Management, On-Call Service and SOC2 fulfilment (Salesforce).</li></ul>`,
+                {
+                    'client_management': '40%',
+                    'project_management': '20%',
+                    'procedures': '30%',
+                    'tech_knowledge': '10%'
+                }
+            )">
+                <span class="label">DEVO</span>
+            </div>
+
+            <div class="box large" onclick="updateInfo(
+                'Hewlett Packard (HP)', 
+                `<ul><li>Service Manager in Spain for the End-User Support of big corporations, like Kone, Pfizer, Syngenta, Deluxe, Philips and UBS.</li><li>Project manager including sizing teams, financial tracking, regular reporting, crisis management, risk assessments and integrations.</li></ul>`,
+                {
+                    'client_management': '50%',
+                    'project_management': '40%',
+                    'procedures': '0%',
+                    'tech_knowledge': '10%'
+                }
+            )">
+                <span class="label">HP</span>
+            </div>
+
+            <div class="box medium" onclick="updateInfo(
+                'Accenture', 
+                `<ul><li>Unix/Tools Administrator: HP-UX, Solaris, OpenView Suite.</li></ul>`,
+                {
+                    'client_management': '0%',
+                    'project_management': '10%',
+                    'procedures': '10%',
+                    'tech_knowledge': '80%'
+                }
+            )">
+                <span class="label">Accenture</span>
+            </div>
+            
+            <div class="box medium" onclick="updateInfo(
+                'Sistemas/Herramientas', 
+                `<ul><li>For Telefonica: Business Intelligence Engineer for the ETL module.</li><li>Database and System Administrator for Telefonica hosting service.</li><li>For Sara-Lee Corporation in Barcelona: administrator of Unix and SAP.</li></ul>`,
+                {
+                    'client_management': '0%',
+                    'project_management': '0%',
+                    'procedures': '10%',
+                    'tech_knowledge': '90%'
+                }
+            )">
+                <span class="label">P&G, etc.</span>
+            </div>
+        </div>
+    </div>
+
+    <div id="infoPanel" class="info-panel">
+        Haz clic en un recuadro para ver la información detallada aquí.
+    </div>
+
+    <div id="contributionContainer" class="contribution-container">
+        <div class="progress-bar-container">
+            <span class="progress-label">Gestión de Clientes/Servicios</span>
+            <div class="progress-bar">
+                <div class="progress-fill" id="client-fill"></div>
+                <span class="progress-percentage" id="client-percentage">0%</span>
+            </div>
+        </div>
+        <div class="progress-bar-container">
+            <span class="progress-label">Gestión de Proyectos/Equipos</span>
+            <div class="progress-bar">
+                <div class="progress-fill" id="project-fill"></div>
+                <span class="progress-percentage" id="project-percentage">0%</span>
+            </div>
+        </div>
+        <div class="progress-bar-container">
+            <span class="progress-label">Procedimientos/Cumplimiento</span>
+            <div class="progress-bar">
+                <div class="progress-fill" id="procedures-fill"></div>
+                <span class="progress-percentage" id="procedures-percentage">0%</span>
+            </div>
+        </div>
+        <div class="progress-bar-container">
+            <span class="progress-label">Conocimientos Técnicos/Sistemas</span>
+            <div class="progress-bar">
+                <div class="progress-fill" id="tech-fill"></div>
+                <span class="progress-percentage" id="tech-percentage">0%</span>
+            </div>
+        </div>
+    </div>
+
+<script>
+    const infoPanel = document.getElementById('infoPanel');
+    const contributionContainer = document.getElementById('contributionContainer');
+
+    // Referencias a los elementos de las barras de progreso
+    const clientFill = document.getElementById('client-fill');
+    const clientPercentage = document.getElementById('client-percentage');
+    const projectFill = document.getElementById('project-fill');
+    const projectPercentage = document.getElementById('project-percentage');
+    const proceduresFill = document.getElementById('procedures-fill');
+    const proceduresPercentage = document.getElementById('procedures-percentage');
+    const techFill = document.getElementById('tech-fill');
+    const techPercentage = document.getElementById('tech-percentage');
+
+    function updateInfo(title, description, contributions) {
+        // Actualiza el panel de descripción
+        infoPanel.innerHTML = '<div class="info-title">' + title + '</div><div class="info-content">' + description + '</div>';
+        infoPanel.classList.add('visible');
+
+        // Actualiza las barras de progreso
+        clientFill.style.width = contributions.client_management;
+        clientPercentage.textContent = contributions.client_management;
+        
+        projectFill.style.width = contributions.project_management;
+        projectPercentage.textContent = contributions.project_management;
+        
+        proceduresFill.style.width = contributions.procedures;
+        proceduresPercentage.textContent = contributions.procedures;
+        
+        techFill.style.width = contributions.tech_knowledge;
+        techPercentage.textContent = contributions.tech_knowledge;
+        
+        contributionContainer.classList.add('visible');
+    }
+</script>
+
+</body>
+</html>
