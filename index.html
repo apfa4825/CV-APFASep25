@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Timeline Profesional</title>
+    <title>ALEJANDRO PEREZ FDEZ-A. Timeline Profesional</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -93,7 +93,23 @@
             margin-top: 10px;
         }
         
-        .info-panel {
+       /* Estilo del panel de información inferior */
+.info-panel {
+    width: 100%;
+    max-width: 900px;
+    min-height: 200px;
+    background-color: teal;
+    border: 1px solid #ddd;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    text-align: left;
+    font-style: italic;
+    color: #008080;
+    transition: opacity 0.3s ease;
+    opacity: 0;
+    margin-top: 20px;
+} 
+.info-panel {
             width: 100%;
             max-width: 900px;
             min-height: 200px;
@@ -156,20 +172,21 @@
             display: block;
         }
 
-        .progress-bar {
-            background-color: #ddd;
-            height: 25px;
-            border-radius: 5px;
-            overflow: hidden;
-            position: relative;
-        }
+/* Estilo para cada barra de progreso */
+.progress-bar {
+    background-color: #ddd;
+    height: 25px;
+    border-radius: 5px;
+    overflow: hidden;
+    position: relative;
+}
 
-        .progress-fill {
-            height: 100%;
-            background-color: #4CAF50;
-            transition: width 0.5s ease-in-out;
-            position: relative;
-        }
+.progress-fill {
+    height: 100%;
+    background-color: teal; /* Color teal para las barras de progreso */
+    transition: width 0.5s ease-in-out;
+    position: relative;
+}
         
         .progress-percentage {
             position: absolute;
@@ -184,20 +201,22 @@
 </head>
 <body>
 
-    <h1>Timeline Profesional</h1>
-    <p>Haz clic en cualquier recuadro para ver la información detallada.</p>
+    <h1 style="color: teal;">ALEJANDRO PEREZ FDEZ-A.</h1>
+    <h2 style="color: teal;">Timeline Profesional</h2>
+    <p style="color: teal;">Pasa el ratón por encima para ver experiencia.</p>
 
     <div class="timeline-wrapper">
         <div class="dates-container">
-            <div class="date-box large">2021-2023</div>
-            <div class="date-box large">2018-2020</div>
-            <div class="date-box large">2000-2018</div>
-            <div class="date-box medium">1997-2000</div>
-            <div class="date-box medium">1993-1996</div>
+            <div class="date-box large" style="color: teal;">2021-2023</div>
+            <div class="date-box large" style="color: teal;">2018-2020</div>
+            <div class="date-box large" style="color: teal;">2000-2018</div>
+            <div class="date-box medium" style="color: teal;">1997-2000</div>
+            <div class="date-box medium" style="color: teal;">1993-1996</div>
         </div>
 
         <div class="timeline-container">
-            <div class="box large" onclick="updateInfo(
+<!--GMV ----------------->
+            <div class="box large" onmouseover="updateInfo(
                 'GMV (Aerospace industry)', 
                 `<ul><li>Managing ITIL processes for several multinational organizations, including, finance, team sizing, resources and training (BMC Remedy).</li><li>This ensured the proper implementation of proactive and reactive monitoring and procedures for a demanding 24/7 autonomous driving project, managing client communications and internal workflows.</li><li>Rigorous monitoring of clients and contractors using OKR/KPIs, procedures, and ISO standards, such as UNE-ISO/EIC 9001, 14001, 22301 and 27701.</li><li>Worked with a technology infrastructure that included AWS, Docker, Nagios, Redmine and Remedy.</li></ul>`,
                 {
@@ -207,25 +226,29 @@
                     'tech_knowledge': '25%'
                 }
             )">
-                <img src="gmv-logo.jpg" alt="Logo de GMV">
+                <span class="box-text" style="color: teal;"><strong>2021-2023</strong></span>
+		<img src="gmv-logo.jpg" alt="Logo de GMV">
             </div>
-
-            <div class="box large" onclick="updateInfo(
+<!--DEVO ----------------->
+            <div class="box large" onmouseover="updateInfo(
                 'DEVO (Big Data SaaS)', 
                 `<ul><li>Head of EMEA Customer Support Success Team for Devo Big Data platform accomplishing regularly the SLAs, reporting, communications and meetings.</li><li>Creation of Business Procedures and the Knowledge Base.</li><li>Involved in the sales process as well as Change Management, Incident Management, On-Call Service and SOC2 fulfilment (Salesforce).</li></ul>`,
                 {
-                    'client_management': '40%',
-                    'project_management': '20%',
+                    'client_management': '35%',
+                    'project_management': '15%',
                     'procedures': '30%',
-                    'tech_knowledge': '10%'
+                    'tech_knowledge': '20%'
                 }
             )">
-                <img src="devo-logo.jpg" alt="Logo de DEVO">
+                <span class="box-text" style="color: teal;"><strong>2021-2023</strong></span>
+		<img src="devo-logo.jpg" alt="Logo de DEVO">
             </div>
-
-            <div class="box large" onclick="updateInfo(
+<!-- HP ----------------->
+            <div class="box large" onmouseover="updateInfo(
                 'Hewlett Packard (HP)', 
                 `<ul><li>Service Manager in Spain for the End-User Support of big corporations, like Kone, Pfizer, Syngenta, Deluxe, Philips and UBS.</li><li>Project manager including sizing teams, financial tracking, regular reporting, crisis management, risk assessments and integrations.</li></ul>`,
+                'Sistemas/Herramientas', 
+                `<ul><li>For Telefonica: Business Intelligence Engineer for the ETL module.</li><li>Database and System Administrator for Telefonica hosting service.</li><li>For Sara-Lee Corporation in Barcelona: administrator of Unix and SAP.</li></ul>`,
                 {
                     'client_management': '50%',
                     'project_management': '40%',
@@ -233,10 +256,11 @@
                     'tech_knowledge': '10%'
                 }
             )">
-                <img src="hp-logo.jpg" alt="Logo de HP">
+                <span class="box-text" style="color: teal;"><strong>2000-2018</strong></span>
+		<img src="hp-logo.jpg" alt="Logo de HP">
             </div>
-
-            <div class="box medium" onclick="updateInfo(
+<!--Accenture ----------------->
+            <div class="box medium" onmouseover="updateInfo(
                 'Accenture', 
                 `<ul><li>Unix/Tools Administrator: HP-UX, Solaris, OpenView Suite.</li></ul>`,
                 {
@@ -246,21 +270,26 @@
                     'tech_knowledge': '80%'
                 }
             )">
-                <img src="accenture-logo.jpg" alt="Logo de Accenture">
+                <span class="box-text" style="color: teal;"><strong>1997-2000</strong></span>
+		<img src="accenture-logo.jpg" alt="Logo de Accenture">
             </div>
-            
-            <div class="box medium" onclick="updateInfo(
-                'Sistemas/Herramientas', 
-                `<ul><li>For Telefonica: Business Intelligence Engineer for the ETL module.</li><li>Database and System Administrator for Telefonica hosting service.</li><li>For Sara-Lee Corporation in Barcelona: administrator of Unix and SAP.</li></ul>`,
+
+<!--Panypas ----------------->
+            <div class="box medium" onmouseover="updateInfo(
+                'Entrepreneur', 
+                `<ul><li>Open new channels in Braga, Portugal.</li><li>Migration of the whole IT platform from a HP Panda to a Windows setup.</li><li>Reduction of material and storage in the logistics area.</li></ul>`,
                 {
-                    'client_management': '0%',
-                    'project_management': '0%',
-                    'procedures': '10%',
-                    'tech_knowledge': '90%'
+                    'client_management': '40%',
+                    'project_management': '20%',
+                    'procedures': '20%',
+                    'tech_knowledge': '20%'
                 }
             )">
-                <img src="pg-etc-logo.jpg" alt="Logo de P&G">
+                <span class="box-text" style="color: teal;"><strong>1992-1996</strong></span>
+		<img src="panypas.jpg" alt="Logo de P&G y otros">
             </div>
+
+<!-- ----------------->
         </div>
     </div>
 
