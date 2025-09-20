@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ALEJANDRO PEREZ FDEZ-A. Timeline Profesional</title>
-<!-- CSS - style ----->
+<!-- CSS - style ------------------------------->
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -15,46 +15,37 @@
             flex-direction: column;
             align-items: center;
         }
-
-        h1 {
-            text-align: center;
-        }
-
-        .timeline-wrapper {
-            display: flex;
-            flex-direction: column;
+        /* Estilo del encabezado en 2 columnas */
+        .header-container {
             width: 100%;
             max-width: 900px;
-            border: 1px solid #000;
-            background-color: #fff;
-            padding: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .header-left {
+            text-align: center;
+			margin: 0;
+            color: teal;
+        }
+
+        .header-right {
+            text-align: right;
+            line-height: 1.2;
+			margin: 0;
+            color: teal;
         }
         
-        .dates-container {
-            display: flex;
-            gap: 5px;
-            flex-wrap: nowrap;
-            
-            justify-content: flex-start;
-            margin-bottom: 5px;
-        }
-
-        .date-box {
-            height: 30px;
-            min-width: 50px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 0.9em;
+        h2 {
             text-align: center;
-            flex-shrink: 0;
-            font-weight: bold;
+            color: teal;
         }
 
-        .date-box.small { width: 100px; }
-        .date-box.medium { width: 150px; }
-        .date-box.large { width: 200px; }
+        /* Fin del estilo de encabezado */
 
+       
         .timeline-container {
             display: flex;
             gap: 5px;
@@ -200,25 +191,24 @@
             font-size: 0.9em;
         }
     </style>
-<!-- CSS - style ----->
-
+<!-- CSS - style ------------------------------->
 </head>
 <body>
 
-    <h1 style="color: teal;line-height: 0.1;">ALEJANDRO PEREZ FDEZ-A.</h1>
-    <p style="color: teal; line-height: 0.1;"> alejandro.perez.fdez@gmail.com - +34 639107757</p>
-    <p style="color: teal; line-height: 0.1;"> https://www.linkedin.com/in/alejandro-perez-fdez-amaro</p>
-    <h2 style="color: teal; line-height: 0.1;">Timeline Profesional</h2>
-    <p style="color: teal; line-height: 0.1;">Pasar el ratón por encima de cada logo.</p>
+    <div class="header-container">
+        <div class="header-left">
+            <h1>ALEJANDRO</h1>
+            <h1>PEREZ FDEZ-AMARO</h1>
+        </div>
+        <div class="header-right">
+            <p style="line-height: 1.1;">alejandro.perez.fdez@gmail.com</p>
+            <p style="line-height: 1.1;"> +34 639107757</p>
+            <p style="line-height: 1.1;">https://www.linkedin.com/in/alejandro-perez-fdez-amaro</p>
+        </div>
+    </div>
 
-    <div class="timeline-wrapper">
-        <!-- div class="dates-container">
-            <div class="date-box large" style="color: teal;">2021-2023</div>
-            <div class="date-box large" style="color: teal;">2018-2020</div>
-            <div class="date-box large" style="color: teal;">2000-2018</div>
-            <div class="date-box medium" style="color: teal;">1997-2000</div>
-            <div class="date-box medium" style="color: teal;">1993-1996</div>
-        </div-->
+    <h2 style="line-height: 0.1;">Timeline Profesional</h2>
+    <p style="color: teal; line-height: 0.1;">Hover over each logo.</p>
 
         <div class="timeline-container">
 <!--Teacher ----------------->
@@ -351,7 +341,6 @@
 		<img src="UPM-informatica.jpg" alt="Logo de FACULTAD INFORMATICA">
             </div>
         </div>
- </div>
 
     <div id="infoPanel" class="info-panel">
         Haz clic en un recuadro para ver la información detallada aquí.
