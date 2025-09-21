@@ -4,8 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ALEJANDRO PEREZ FDEZ-A. Timeline Profesional</title>
-<!-- CSS - style ------------------------------->
-    <style>
+<style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
@@ -15,6 +14,7 @@
             flex-direction: column;
             align-items: center;
         }
+
         /* Estilo del encabezado en 2 columnas */
         .header-container {
             width: 100%;
@@ -45,7 +45,7 @@
 
         /* Fin del estilo de encabezado */
 
-       
+        
         .timeline-container {
             display: flex;
             gap: 5px;
@@ -86,23 +86,8 @@
             margin-top: 10px;
         }
         
-       /* Estilo del panel de información inferior */
-.info-panel {
-    width: 100%;
-    max-width: 900px;
-    min-height: 200px;
-    background-color: teal;
-    border: 1px solid #ddd;
-    padding: 20px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    text-align: left;
-    font-style: italic;
-    color: #008080;
-    transition: opacity 0.3s ease;
-    opacity: 0;
-    margin-top: 20px;
-} 
-.info-panel {
+        /* Estilo del panel de información (recuadro superior) */
+        .info-panel {
             width: 100%;
             max-width: 900px;
             min-height: 200px;
@@ -114,12 +99,12 @@
             font-style: italic;
             color: #555;
             transition: opacity 0.3s ease;
-            opacity: 0;
+            opacity: 0; /* Oculto por defecto */
             margin-top: 20px;
         }
 
         .info-panel.visible {
-            opacity: 1;
+            opacity: 1; /* Se hace visible al pasar el ratón */
         }
 
         .info-title {
@@ -141,16 +126,39 @@
             padding-left: 20px;
         }
 
+        /* Estilos del contenedor de contribuciones con 2 columnas */
         .contribution-container {
             width: 100%;
             max-width: 900px;
+            display: flex; /* Activa Flexbox para las 2 columnas */
+            gap: 20px;
             margin-top: 20px;
-            opacity: 0;
+            opacity: 0; /* Oculto por defecto */
             transition: opacity 0.3s ease;
+            background-color: white;
+            padding: 20px;
+            border: 1px solid #ddd;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
         
         .contribution-container.visible {
-            opacity: 1;
+            opacity: 1; /* Se hace visible al pasar el ratón */
+        }
+
+        .logo-column {
+            flex: 1; /* Columna izquierda para el logo */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .logo-column img {
+            max-width: 100%;
+            max-height: 150px;
+        }
+
+        .progress-column {
+            flex: 2; /* Columna derecha para las barras de progreso */
         }
 
         .progress-bar-container {
@@ -165,21 +173,20 @@
             display: block;
         }
 
-/* Estilo para cada barra de progreso */
-.progress-bar {
-    background-color: #ddd;
-    height: 25px;
-    border-radius: 5px;
-    overflow: hidden;
-    position: relative;
-}
+        .progress-bar {
+            background-color: #ddd;
+            height: 25px;
+            border-radius: 5px;
+            overflow: hidden;
+            position: relative;
+        }
 
-.progress-fill {
-    height: 100%;
-    background-color: teal; /* Color teal para las barras de progreso */
-    transition: width 0.5s ease-in-out;
-    position: relative;
-}
+        .progress-fill {
+            height: 100%;
+            background-color: teal;
+            transition: width 0.5s ease-in-out;
+            position: relative;
+        }
         
         .progress-percentage {
             position: absolute;
@@ -191,7 +198,6 @@
             font-size: 0.9em;
         }
     </style>
-<!-- CSS - style ------------------------------->
 </head>
 <body>
 
@@ -211,8 +217,7 @@
     <p style="color: teal; line-height: 0.1;">Hover over each logo.</p>
 
         <div class="timeline-container">
-<!--Teacher ----------------->
-            <div class="box medium" onmouseover="updateInfo(
+<div class="box medium" onmouseover="updateInfo(
                 'Educationn', 
 				'flag-CAM.jpg',
                 `<ul><li>Teaching young people for the labor market in technical subjects about systems, programming, networks, 
@@ -223,13 +228,13 @@
                     'project_management': '10%',
                     'procedures': '20%',
                     'tech_knowledge': '60%'
-                }            )">
+                }
+            )">
                 <span class="box-text" style="color: teal;"><strong>2023-current</strong></span>
 		<img src="flag-CAM.jpg" alt="Logo de CAM">
             </div>
 
-	<!--GMV ----------------->
-            <div class="box large" onmouseover="updateInfo(
+	<div class="box large" onmouseover="updateInfo(
                 'GMV (Aerospace industry)', 
 				'gmv-logo.jpg', 
                 `<ul><li>Managing ITIL processes for several multinational organizations, including, finance, team sizing, resources and training (BMC Remedy).</li>
@@ -248,8 +253,7 @@
                 <span class="box-text" style="color: teal;"><strong>2021-2023</strong></span>
 		<img src="gmv-logo.jpg" alt="Logo de GMV">
             </div>
-<!--DEVO ----------------->
-            <div class="box large" onmouseover="updateInfo(
+<div class="box large" onmouseover="updateInfo(
                 'DEVO (Big Data SaaS)', 
 				'devo-logo.jpg',
                 `<ul><li>Head of EMEA Customer Support Success Team for Devo Big Data platform accomplishing regularly the SLAs, reporting, communications and meetings.</li><li>Creation of Business Procedures and the Knowledge Base.</li><li>Involved in the sales process as well as Change Management, Incident Management, On-Call Service and SOC2 fulfilment (Salesforce).</li></ul>`,
@@ -263,13 +267,10 @@
                 <span class="box-text" style="color: teal;"><strong>2018-2020</strong></span>
 		<img src="devo-logo.jpg" alt="Logo de DEVO">
             </div>
-<!-- HP ----------------->
-            <div class="box largexxl" onmouseover="updateInfo(
+<div class="box largexxl" onmouseover="updateInfo(
                 'Hewlett Packard (HP)', 
 				'hp-logo.jpg', 
                 `<ul><li>Service Manager in Spain for the End-User Support of big corporations, like Kone, Pfizer, Syngenta, Deluxe, Philips and UBS.</li><li>Project manager including sizing teams, financial tracking, regular reporting, crisis management, risk assessments and integrations.</li></ul>`,
-                'Sistemas/Herramientas', 
-                `<ul><li>For Telefonica: Business Intelligence Engineer for the ETL module.</li><li>Database and System Administrator for Telefonica hosting service.</li><li>For Sara-Lee Corporation in Barcelona: administrator of Unix and SAP.</li></ul>`,
                 {
                     'client_management': '50%',
                     'project_management': '40%',
@@ -280,8 +281,7 @@
                 <span class="box-text" style="color: teal;"><strong>2000-2018</strong></span>
 		<img src="hp-logo.jpg" alt="Logo de HP">
             </div>
-<!--Accenture ----------------->
-            <div class="box medium" onmouseover="updateInfo(
+<div class="box medium" onmouseover="updateInfo(
                 'Accenture', 
 				'accenture-logo.jpg',
                 `<ul><li>Unix/Tools Administrator: HP-UX, Solaris, OpenView Suite Unix for a Forex market risk assessment project.</li></ul>`,
@@ -295,8 +295,7 @@
                 <span class="box-text" style="color: teal;"><strong>1997-2000</strong></span>
 		<img src="accenture-logo.jpg" alt="Logo de Accenture">
             </div>
-<!-- ITP ----------------->
-            <div class="box small" onmouseover="updateInfo(
+<div class="box small" onmouseover="updateInfo(
                 'System Administration', 
 				'ITP.jpg',
                 `<ul><li>Sun Platform Administrator with CAD/CAM for Eurofighter Engine Design (ITP/Rolls-Royce)<./li></ul>`,
@@ -305,13 +304,13 @@
                     'project_management': '20%',
                     'procedures': '20%',
                     'tech_knowledge': '20%'
-                }            )">
+                }
+            )">
                 <span class="box-text" style="color: teal;"><strong>1996-1997</strong></span>
 		<img src="ITP.jpg" alt="Logo de ITP">
             </div>
 
-	<!--P&G ----------------->
-            <div class="box small" onmouseover="updateInfo(
+	<div class="box small" onmouseover="updateInfo(
                 'System Administration',
 				'pg-etc-logo.jpg',
                 `<ul><li>area.</li></ul>`,
@@ -320,17 +319,17 @@
                     'project_management': '20%',
                     'procedures': '20%',
                     'tech_knowledge': '20%'
-                }            )">
+                }
+            )">
                 <span class="box-text" style="color: teal;"><strong>1993-1996</strong></span>
 		<img src="pg-etc-logo.jpg" alt="Logo de P&G y otros">
             </div>
 
-<!--Panypas ----------------->
-            <div class="box small" onmouseover="updateInfo(
+<div class="box small" onmouseover="updateInfo(
                 'Entrepreneur',
 				'panypas.jpg',
                 `<ul><li> Industrial Bakery firm. Responsible for covering the IT area, Logistics,
- Billing and Manufacturing on a Windows setup.</li>
+ Billing and Manufacturing on a Windows setup.</li>
 				<li>Migration of the whole IT platform from a HP Panda to a Windows setup.</li>
 				<li>Reduction of material and storage in the logistics area.</li>
 				<li>Open new channels in Braga, Portugal.</li></ul>`,
@@ -344,9 +343,8 @@
                 <span class="box-text" style="color: teal;"><strong>1989-1993</strong></span>
 		<img src="panypas.jpg" alt="Logo de Panypas">
             </div>
-     
-	<!--UPM ----------------->
-            <div class="box small" onmouseover="updateInfo(
+      
+	<div class="box small" onmouseover="updateInfo(
                 'Education', 
                 'UPM-informatica.jpg',
 				`<ul><li>University studies in Computer Science.</li><li>CERTIFICATE OF CORRESPONDENCE
@@ -411,6 +409,7 @@ What is certified in Madrid, as of May 30, 2025</li></ul>`,
 
 
 <script>
+    // Referencias a los elementos del DOM
 	const infoPanel = document.getElementById('infoPanel');
     const contributionContainer = document.getElementById('contributionContainer');
     const jobLogo = document.getElementById('job-logo');
@@ -424,11 +423,16 @@ What is certified in Madrid, as of May 30, 2025</li></ul>`,
     const techFill = document.getElementById('tech-fill');
     const techPercentage = document.getElementById('tech-percentage');
 
-   function updateInfo(title, imagePath, description, contributions) {
-        infoPanel.innerHTML = '<div class="info-title">' + title + '</div><div class="info-content">' + description + '</div>';
-        jobLogo.src = imagePath;
+	// Función que se activa al pasar el ratón por un recuadro de trabajo
+    function updateInfo(title, imagePath, description, contributions) {
+        // 1. Actualiza el contenido del panel de descripción (recuadro superior)
+		infoPanel.innerHTML = '<div class="info-title">' + title + '</div><div class="info-content">' + description + '</div>';
+        
+        // 2. Actualiza la imagen del logo en la columna izquierda del panel inferior
+		jobLogo.src = imagePath;
 	
-        clientFill.style.width = contributions.client_management;
+        // 3. Actualiza el ancho de las barras de progreso y los porcentajes
+		clientFill.style.width = contributions.client_management;
         clientPercentage.textContent = contributions.client_management;
         
         projectFill.style.width = contributions.project_management;
@@ -439,7 +443,9 @@ What is certified in Madrid, as of May 30, 2025</li></ul>`,
         
         techFill.style.width = contributions.tech_knowledge;
         techPercentage.textContent = contributions.tech_knowledge;
-        
+
+		// 4. Hace visibles los dos recuadros (el de la descripción y el de las contribuciones)
+		infoPanel.classList.add('visible');
         contributionContainer.classList.add('visible');
     }
 </script>
