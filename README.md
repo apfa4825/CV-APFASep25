@@ -1,4 +1,4 @@
-Para actualizar tu página en GitHub
+NOTAS mías: para actualizar tu página en GitHub
 Abre tu archivo index.html en el repositorio de GitHub.
 
 1 Haz clic en el ícono del lápiz (Editar) para modificar el archivo.
