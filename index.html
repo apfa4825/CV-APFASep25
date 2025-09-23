@@ -45,6 +45,7 @@
         h2 {
             text-align: center;
             color: teal;
+			margin-top: 0; /* Para eliminar el espacio superior de los h2 */
         }
 
         /* Fin del estilo de encabezado */
@@ -75,7 +76,7 @@
         }
 
         .box:hover {
-            transform: scale(1.5);
+            transform: scale(1.3);
             box-shadow: 0 4px 8px rgba(0,0,0,0.2);
         }
 
@@ -217,16 +218,14 @@
         </div>
     </div>
 
-    <h2 style="line-height: 0.1;">Timeline Profesional</h2>
-    <p style="color: teal; line-height: 0.1;">Hover over each logo.</p>
+    <h2 style="line-height: 0.1;">Professional Timeline (Hover mouse over logos)</h2>
 
         <div class="timeline-container">
 <div class="box medium" onmouseover="updateInfo(
                 'Education-Training', 
 				'flag-CAM-skills.jpg',
-                `<ul><li>Teaching young people for the labor market in technical subjects about systems, programming, networks, 
-				including mentions of AI as an expert in the subject from my final degree project: Inductive Learning based on Knowledge [Michalski,83].</li>
-				<li>a href https://oa.upm.es/69647/ Digital archive UPM</li></ul>`,
+`<ul><li>Training young people for the labor market in technical subjects on systems, programming and networks, including mentions of AI based on my final degree project: Inductive Learning based on Knowledge [Michalski, 83].</li>
+<li>a href https://oa.upm.es/69647/ Archivo digital UPM</li></ul>`,
                 {
                     'client_management': '5%',
                     'project_management': '10%',
@@ -241,12 +240,11 @@
 	<div class="box large" onmouseover="updateInfo(
                 'GMV (Aerospace industry) - Project Manager', 
 				'gmv-skills.jpg', 
-                `<ul><li>Managing ITIL processes for several multinational organizations, including, finance, team sizing, resources and training (BMC Remedy).</li>
-				<li>This ensured the proper implementation of proactive and reactive monitoring and procedures for a demanding 24/7 autonomous driving project, managing
-				client communications and internal workflows.</li>
-				<li>Rigorous monitoring of clients and contractors using OKR/KPIs, procedures, and ISO standards, 
-				such as UNE-ISO/EIC 9001, 14001, 22301 and 27701.</li>
-				<li>Worked with a technology infrastructure that included AWS, Docker, Nagios, Redmine and Remedy.</li></ul>`,
+`<ul><li>Managed ITIL processes for several multinational organizations, including finance, team sizing, resourcing, and training (BMC Remedy).</li>
+<li>Achieved the correct implementation of procedures for proper proactive and reactive monitoring of projects, such as 24/7 autonomous driving and IT services.</li>
+<li>Rigorous oversight of clients and contractors using OKRs/KPIs, procedures, and ISO standards, such as UNE-ISO/EIC 9001, 14001, 22301, and 27701.</li>
+		<li>Managed client meetings and communications, as well as internal workflows.</li>
+		<li>Worked with a technological infrastructure that included AWS, Docker, Nagios, Redmine, and Remedy.</li></ul>`,
                 {
                     'client_management': '30%',
                     'project_management': '30%',
@@ -260,7 +258,10 @@
 <div class="box large" onmouseover="updateInfo(
                 'DEVO (Big Data SaaS) - EMEA Customer Success Manager', 
 				'devo-skills.jpg',
-                `<ul><li>Head of EMEA Customer Success Team for Devo Big Data platform accomplishing regularly the SLAs, reporting, communications and meetings.</li><li>Creation of Business Procedures and the Knowledge Base.</li><li>Involved in the sales process as well as Change Management, Incident Management, On-Call Service and SOC2 fulfilment (Salesforce).</li></ul>`,
+				`<ul><li>Head of the EMEA Customer Success Team for the Devo Big Data platform, regularly meeting SLAs, reporting, communications, and meetings.</li>
+				<li>Created Business Procedures and the Knowledge Base as customer needs grew.</li>
+				<li>Participated in the sales process, as well as Change Management, Incident Management, On-Call Service, and SOC2 compliance.</li>
+				<li>Responsible for the migration from the Zendesk platform to Salesforce.</li></ul>`,
                 {
                     'client_management': '35%',
                     'project_management': '15%',
@@ -274,7 +275,9 @@
 <div class="box largexxl" onmouseover="updateInfo(
                 'Hewlett Packard (HP) - IT Service Manager', 
 				'hp-skills.jpg', 
-                `<ul><li>Service Manager in Spain for the End-User Support of big corporations, like Kone, Pfizer, Syngenta, Deluxe, Philips and UBS.</li><li>Project manager including sizing teams, financial tracking, regular reporting, crisis management, risk assessments and integrations.</li></ul>`,
+				`<ul><li>Service Manager in Spain for End-User Support for large corporations such as Kone, Pfizer, Syngenta, Deluxe, Philips, and UBS.</li>
+				<li>Project manager, including team definition, financial monitoring, periodic reporting, crisis management, risk assessments, and integrations.</li>
+				<li>Spanish branches become pilots for new developments thanks to the reliable and professional on-site support team I led.</li></ul>`,
                 {
                     'client_management': '40%',
                     'project_management': '25%',
@@ -288,8 +291,10 @@
 <div class="box medium" onmouseover="updateInfo(
                 'Accenture - UNIX System Administration', 
 				'acceture-argentaria.jpg',
-                `<ul><li>Unix/Tools Administrator: HP-UX, Solaris, OpenView Suite Unix for a Forex market risk assessment project.</li>
-				<li></li></ul>`,
+`<ul><li>Unix/Tools Administrator: HP-UX, Solaris, OpenView Unix Suite for a Forex market risk assessment project.</li>
+<li>Implemented interoperability across multiple platforms used by the market.</li>
+<li>Daily incident management and on-call service for backend tasks.</li>
+<li>Implemented migration from HP-UX workstations to Windows PCs.</li></ul>`,
                 {
                     'client_management': '5%',
                     'project_management': '10%',
@@ -303,9 +308,9 @@
 <div class="box small" onmouseover="updateInfo(
                 'ITP - UNIX System Administration', 
 				'ITP-skills.jpg',
-                `<ul><li>Sun Platform Administrator with CAD/CAM for Eurofighter Engine Design (ITP/Rolls-Royce)<./li>
-				<li>Follow up of all the requiriments setup by the Design Department and NATO.</li>
-				<li>Setup a ensuring Backup procedure with reliable checks.</li></ul>`,
+`<ul><li>Sun Platform Administrator with CAD/CAM for Eurofighter Engine Design (ITP/Rolls-Royce).</li>
+<li>Configuration and oversight of all requirements established by the Design Department and NATO.</li>
+<li>Establishment of a secure backup procedure with reliable checks.</li></ul>`,
                 {
                     'client_management': '5%',
                     'project_management': '5%',
@@ -320,10 +325,10 @@
 	<div class="box small" onmouseover="updateInfo(
                 'P&G - IT Service Manager',
 				'pg-skills.jpg',
-                `<ul><li>Responsible de Onsite Support Team of the Headquarters.</li>
-				<li>Management of the HP3000 in factory, Mataro.</li>
-				<li>Deployment of new Cat 5 cabling setup (72.000 € budget).</li>
-				<li>Windows update to all employee's PCs, including training.</li></ul>`,
+`<ul><li>Head of the On-Site Technical Support Team at Headquarters.</li>
+<li>Management of the HP3000 at the Mataró factory.</li>
+<li>Implementation of the new Cat 5 cabling configuration (budget €72,000).</li>
+<li>Windows update for all employee PCs, including training.</li></ul>`,
                 {
                     'client_management': '5%',
                     'project_management': '40%',
@@ -338,11 +343,10 @@
 <div class="box small" onmouseover="updateInfo(
                 'Entrepreneur',
 				'Panypas-skills.jpg',
-                `<ul><li> Industrial Bakery firm. Responsible for covering the IT area, Logistics,
- Billing and Manufacturing on a Windows setup.</li>
-				<li>Migration of the whole IT platform from a HP Panda to a Windows setup.</li>
-				<li>Reduction of material and storage in the logistics area.</li>
-				<li>Open new channels in Braga, Portugal.</li></ul>`,
+`<ul><li>Industrial bakery company. Responsible for covering IT, logistics, invoicing, and manufacturing areas in a Windows configuration.</li>
+<li>Migrated the entire HP Panda IT platform to a Windows configuration.</li>
+<li>Reduced material and storage in the logistics area.</li>
+<li>Opened new channels in Braga, Portugal.</li></ul>`,
                 {
                     'client_management': '40%',
                     'project_management': '20%',
@@ -355,16 +359,13 @@
             </div>
       
 	<div class="box small" onmouseover="updateInfo(
-                'U.Politecnica, Madrid - University Education', 
+                'Polytechnic University of Madrid - University Education', 
                 'UPM+titulo.jpg',
-				`<ul><li>University studies in Computer Science.</li><li>CERTIFICATE OF CORRESPONDENCE
-In accordance with Article 27.2 of Royal Decree 967/2014, of November 21, and in accordance with the Agreement of the Council of Ministers of April 24, 2015, published by the Resolution of May 4, 2015, of the Directorate General for University Policy (BOE 11-05-2015), the Deputy Director General
+`<ul><li>University studies in Computer Science.</li><li>CORRESPONDENCE CERTIFICATE
+In accordance with...
 CERTIFIES:
-That the Bachelor's degree in Computer Science obtained by ALEJANDRO PEREZ
-FERNANDEZ-AMARO with NIF 50158388B and registered in the National Registry of Official University Graduates with number 2007100982, corresponds to level 3 (Master's) of the
-Spanish Qualifications Framework for Higher Education (MECES) and level 7 of the
-European Qualifications Framework (EQF).
-What is certified in Madrid, as of May 30, 2025</li></ul>`,
+That the Bachelor's degree in Computer Science obtained by ALEJANDRO PÉREZ
+... Graduate with number 2007100982, corresponds to level 3 (Master's degree)...</li></ul>`,
                 {
                     'client_management': '0%',
                     'project_management': '0%',
